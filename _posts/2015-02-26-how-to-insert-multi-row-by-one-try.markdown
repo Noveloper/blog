@@ -39,5 +39,5 @@ FROM table2;
 
 
 <h3>참고자료</h3>
-- (MySql : INSERT INTO SELECT)[http://dev.mysql.com/doc/refman/5.7/en/insert-select.html]
-- (CUBRID : INSERT INTO SELECT)[http://www.cubrid.org/manual/92/ko/sql/query/insert.html]
+- [MySql : INSERT INTO SELECT](http://dev.mysql.com/doc/refman/5.7/en/insert-select.html)
+- [CUBRID : INSERT INTO SELECT](http://www.cubrid.org/manual/92/ko/sql/query/insert.html)
