@@ -15,7 +15,7 @@ categories: Database
 - 이미 입력된 여러행의 데이터를 한번의 쿼리로 INSERT 가능하게 하는 SQL 에서 제공되는 INSERT INTO SELECT 에 대해서 소개한다.
 - 기본 구문은 다음과 같다.
 
-```java
+```sql
 INSERT INTO table_name SELECT * FROM table_name WHERE target_id = ?
 ```
 
