@@ -22,13 +22,13 @@ INSERT INTO table_name SELECT * FROM table_name WHERE target_id = ?
 - 위에서 언급한 상황에서의 해결은 다음과 같이 컬럼명을 나열해주며 해결한다.
 - 테이블 스키마에 정의된 컬럼 순서대로 입력을 해줘야 한다.
 
-```java
+```sql
 INSERT INTO table_name SELECT 'noveloper' target_id, target_name, ... FROM table_name WHERE step = 'A' 
 ```
 
 - 이 구문을 이용하면 같은 테이블이 아닌 곳에서 필요한 키값을 얻어올 수 있다면 그거대로 이용이 가능하다.
 
-```java
+```sql
 INSERT INTO table1 (field1,field3,field9)
 SELECT table2.field3,table2.field1,table2.field4
 FROM table2;
