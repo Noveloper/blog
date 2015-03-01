@@ -19,4 +19,25 @@ categories: Database
 INSERT INTO table_name SELECT * FROM table_name WHERE target_id = ?
 ```
 
-- 
+- 위에서 언급한 상황에서의 해결은 다음과 같이 컬럼명을 나열해주며 해결한다.
+- 테이블 스키마에 정의된 컬럼 순서대로 입력을 해줘야 한다.
+
+```java
+INSERT INTO table_name SELECT 'noveloper' target_id, target_name, ... FROM table_name WHERE step = 'A' 
+```
+
+- 이 구문을 이용하면 같은 테이블이 아닌 곳에서 필요한 키값을 얻어올 수 있다면 그거대로 이용이 가능하다.
+
+```java
+INSERT INTO table1 (field1,field3,field9)
+SELECT table2.field3,table2.field1,table2.field4
+FROM table2;
+```
+
+<h3>결론</h3>
+비록, 개발자가 INSERT 작업을 해주는건 똑같지만 이 구문을 이용하면 쿼리 한번으로 해결이 가능하기 때문에 작업 소요가 엄청 줄어든것은 분명해서 나름 만족할만한 결과이다. 게다가 수작업이 아닌 시스템에 기능으로 적용하기에도 이 SQL 구문은 굉장히 좋다. 예를들어 특정 기능의 복사 기능을 만들때, 그 기능의 모든 파라미터를 받는게 아닌 해당 데이터의 키값만 받아서 그대로 이 구문을 이용하여 INSERT 하면 가장 아트한 복사 기능을 만들 수 있다. 
+
+
+<h3>참고자료</h3>
+- (MySql : INSERT INTO SELECT)[http://dev.mysql.com/doc/refman/5.7/en/insert-select.html]
+- (CUBRID : INSERT INTO SELECT)[http://www.cubrid.org/manual/92/ko/sql/query/insert.html]
