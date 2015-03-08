@@ -16,7 +16,7 @@ categories: Javascript
 ```Javascript
 <form>
   <input name="targetId" />
-  <input name="targetDescription" disabled/>
+  <input name="targetDescription" disabled />
   ...
 </form>
 ```
