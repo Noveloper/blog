@@ -23,6 +23,6 @@ categories: Javascript
 
 - 위와 같이 작성하면 전송시에 targetId 만 넘어가게 되고 disabled 처리된 targetDescription은 전달되지 않는다.
 
-<h3>Referencd</h3>
+<h3>Reference</h3>
 - [Stackoverflow : Exclude hidden form fields from submit](http://stackoverflow.com/questions/16808799/exclude-hidden-form-fields-from-submit)
 - [w3schools : disabled Attribute](http://www.w3schools.com/tags/att_input_disabled.asp)
