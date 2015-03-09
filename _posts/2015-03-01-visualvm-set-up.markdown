@@ -13,3 +13,7 @@ VisualVM을 사용하기 위해 설치하는 방법을 알아보겠다. 설치�
 [VisualVM 다운로드 받는 곳](http://visualvm.java.net/download.html) 
 
 <img src="/blog/image/visualvm_1.png" alt="visualvm 설치 - 1">
+
+<h3>Reference</h3>
+- [VisualVM 다운로드](http://visualvm.java.net/download.html)
+- [VisualVM 설치 및 Eclipse에 VisualVM 플러그인 설치 튜토리얼](http://linuxism.tistory.com/1838)
