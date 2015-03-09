@@ -12,4 +12,4 @@ VisualVM을 사용하기 위해 설치하는 방법을 알아보겠다. 설치�
 먼저 아래의 링크를 클릭하여 다운받는 곳으로 이동 후 최상단에 있는 최신버전을 다운받는다. 
 [VisualVM 다운로드 받는 곳](http://visualvm.java.net/download.html) 
 
-<img src="/img/visualvm_1.png" alt="visualvm 설치 - 1">
+<img src="/image/visualvm_1.png" alt="visualvm 설치 - 1">
