@@ -33,5 +33,6 @@ VisualVM이 제공하는 기능에 대해서 알아보자.
 <h3>정리</h3>
 아직은 사용해 보지 않아서 정확히 위에서 정리한 기능들을 어떻게 보여줄지는 잘모르겠다. 일단 VisualVM에 대해서 정리해보면 개발자는 VisualVM만 잘 활용한다면 자신이 만든 어플리케이션의 성능 측정을 통해서 성능 향상을 꾀할 수 있다. VisualVM을 사용하기에 앞서 간략하게 VisualVM이 무엇이고 내포된 기능이 어떤것이 있는지 정리해 보았다. 
 
+
 <h3>Reference</h3>
 [VisualVM](http://visualvm.java.net/)
