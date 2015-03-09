@@ -14,6 +14,7 @@ categories: Java
 VisualVM은 JDK 7이상의 환경에서 돌아가지만, 모니터링 대상이 되는 어플리케이션의 기반 JDK 버전은 1.4 이상 모두 지원하고있다. VisualVM은 모니터링 되는 어플리케이션에 아주 경미한 오버헤드를 부과하기 위해 자동적으로 데이터를 수집할 수 있고 빠르고 가볍게 이용이 가능한 jvmstat, JMX, SA, Attach API 등의 기능을 활용한다.
 
 VisualVM이 제공하는 기능에 대해서 알아보자.
+
 - Display local and remote Java applications, VisualVM은 실행중인 Java 어플리케이션을 로컬 및 원격에서 자동으로 감지하고 나열한다.
 - Display application configuration and runtime environment, 각 어플리케이션에 대해 VisualVM은 다음과 같은 기본 런타임 정보를 보여준다. PID, Main class, JVM Home, JDK Home 등.
 - Monitor application performance and memory consumption, 어플리케이션의 CPU 사용량, GC 활동량, Heap 영역 사용량, 실행중인 쓰레드와 로딩된 클래스의 개수 등을 알아볼 수 있다.
