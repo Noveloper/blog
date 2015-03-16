@@ -43,6 +43,7 @@ void updateBlog(Map<String, Object> paramMap) {
 }
 ```
 
+
 <h3>What is problem?</h3>
 - 시스템에서 에러가 났는데 이유를 모르겠다. 아니 정확히 말하자면 이유는 알 수 있었는데 왜? 라는 의문이 들었다. 분명히 데이터케이스 스키마정보에 post_id라는 컬럼은 NOT NULL이 지정되고 있었기 때문에 null 값이 들어오면 진즉에 SqlException을 냈어야 정상인데 이 컬럼에 널값이 들어가서 이 테이블을 참조하는 다른시스템에서 오류가 나고 있었다. (심지어 Mapper 파일에서 if태그문을 걸어 not null 에다가 ''와 같은 빈문자열도 거르고 있었다.)
 - 자세히 깊게 들여다보니 NULL 값이 들어간게 아니라 "null" 이라는 문자열이 들어간것이다.
@@ -64,8 +65,10 @@ public void updateBlog(Map<String, Object> paramMap) {
 }
 ```
 
+
 <h3>Conclusion</h3>
 - 사실 이와 같은 문제는 프론트단에서 컨트롤러로 값을 받을때 Validation 체크하는 로직이 제대로 만들어져 있었다면 애초에 컨트롤러에서 잡았을 문제이다. 허나 분명히 위와 같은 상황이 벌어질 수 밖에 없는 이유가 있었고 String.valueOf 와 같은 기본적인 메서드를 사용할때에도 한번 더 생각할 필요가 있다는것을 알게되었다.
+
 
 
 <h3>Reference</h3>
