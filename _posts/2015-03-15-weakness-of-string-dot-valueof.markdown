@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "String.valueOf() 사용시 주의사항"
+title:  "String.valueOf() 사용시 생길 수 있는일 및 주의사항"
 categories: Java
 ---
 
