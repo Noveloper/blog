@@ -59,7 +59,7 @@ private stringValueOf(Object object) {
 public void updateBlog(Map<String, Object> paramMap) {
   Blog blog = new Blog();
   ...
-  blog.setPostId(stringValueOf(paramMap.get("postId")));
+  blog.setPostId(stringValueOf(paramMap.get("postId"));
   ...
   blogDAO.updateBlog(blog);
 }
