@@ -30,7 +30,7 @@ class Blog {
 }
 ```
 
-프론트단에서 넘어오는 postId 값이 굉장히 길어질 수 있음을 고려하여 postId를 String으로 선언하였다. 받아온 paramMap의 Map 제네릭은 <String, Object> 였으므로 blog객체에 넘겨줄라면 형변환을 하거나 String.valueOf를 쓰면된다.
+프론트단에서 넘어오는 postId 값이 굉장히 길어질 수 있음을 고려하여 postId를 String으로 선언하였다. 받아온 paramMap의 Map 제네릭은 [String, Object] 였으므로 blog객체에 넘겨줄라면 형변환을 하거나 String.valueOf를 쓰면된다.
 
 ```java
 @Override
