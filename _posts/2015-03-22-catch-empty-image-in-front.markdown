@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "img태그에 src의 참조가 없는 참조라면?"
+title:  "img태그에 src가 잘못됐을때의 처리방법"
 categories: Javascript
 ---
 
@@ -91,7 +91,7 @@ $("img").each(function() {
 역시 이 방법도 잘된다. 상황에 따라서 JSTL을 이용한 방법을 사용할 지 자바스크립트를 이용한 방법을 사용할 지를 결정해야 될 것 같다. 어쨌든 미션 Clear.
 
 
-<h2>Referencd</h2>
+<h2>Reference</h2>
 - [JSTL - catch](http://www.tutorialspoint.com/jsp/jstl_core_catch_tag.htm)
 - [JSTL - import](http://www.tutorialspoint.com/jsp/jstl_core_import_tag.htm)
 - [Get real image width and height with JavaScript in Safari/Chrome?](http://stackoverflow.com/questions/318630/get-real-image-width-and-height-with-javascript-in-safari-chrome)
