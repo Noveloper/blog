@@ -80,7 +80,7 @@ $("img").each(function() {
   var real_width, real_height;
   
   $("<img/>") 
-      .attr("src", $(img).attr("src"))
+      .attr("src", $imgTag.attr("src"))
       .load(function() {
           real_width = this.width;   
           real_height = this.height;
