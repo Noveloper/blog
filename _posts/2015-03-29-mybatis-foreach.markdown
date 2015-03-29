@@ -7,7 +7,7 @@ categories: Spring
 이전에 작성했던 포스트중에 INSERT INTO SELECT 에 대해 다뤘던적이 있다. <br>
 - [INSERT INTO SELECT](http://noveloper.github.io/blog/database/2015/02/26/how-to-insert-multi-row-by-one-try.html)
 
-해당 방법은 INSERT를 할 때 기존에 있던 데이터들과 같은 값들을 넣을때 값을 조회하면서 INSERT 하는 다중 INSERT 하는 방식이었다. <br>
+해당 방법은 INSERT를 할 때 기존에 있던 데이터들과 같은 값들을 넣을때 값을 조회하면서 INSERT 하는 다중 INSERT 방식이었다. <br>
 <br>
 하지만 매번 다른 값이 들어가야하는 다중 INSERT 를 해야한다면? 그 값은 DAO를 통해서 넘어온다면? <br>
 일반적으로 생각하는 방법은 다음과같이 Java단에서 List의 forEach 문법을 이용하여 INSERT 함수를 반복 호출하는것이다. 
@@ -36,10 +36,10 @@ public void insertUserList(List<User> users) {
 ```
 
 <h2>What is problem?</h2>
-생각해보면 코드도 깔끔하고 의미가 명확하여 좋은것같다. 하지만 이 작업을 수행하기 위해서는 예를들어 만약 1000명의 User를 삽입해야 한다면 다음과 같은 작업이 1000번 일어날 것이다.
-
-[ DAO 함수호출 - Mapper 검색 - DB 오픈 - Query 수행 ] x 1000
-
+생각해보면 코드도 깔끔하고 의미가 명확하여 좋은것같다. 하지만 이 작업을 수행하기 위해서는 예를들어 만약 1000명의 User를 삽입해야 한다면 다음과 같은 작업이 1000번 일어날 것이다. <br>
+<br>
+[ DAO 함수호출 - Mapper 검색 - DB 오픈 - Query 수행 ] x 1000 <br>
+<bt>
 사실 굵직한 작업으로 많이 간소화해서 그렇지 이거보다 더 많은 작업이 이루어지게 된다. 위에 프로세스에서 오로지 Query 수행만 1000번하게 할 수 업을까?
 
 <h2>Mabatis - foreach</h2>
