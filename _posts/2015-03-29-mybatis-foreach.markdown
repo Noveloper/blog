@@ -68,7 +68,7 @@ public void insertUserList(List<User> users) {
 </insert>
 ```
 
-이렇게 하면 위에서 정의한 프로세스중 Query 수행만 1000번 돌아간다는 신뢰가 생긴다. <br>
+이렇게 하면 위에서 정의한 프로세스중 Query 수행만 1000번 돌아가기 떄문에 앞선 방법보다 성능이 훨씬 빠르다.
 <br>
 foreach는 INSERT 뿐만 아니라 SELECT 시 에도 쓰인다. <br>
 user_type이라는 컬럼이 있고 해당 값이 특정한 값일때만 조회를 해야하고 List를 통해서 넘어올 때 다음과 같이 mapper를 작성해주면 된다.
@@ -95,7 +95,8 @@ user_type IN
 ```
 
 <h2>conclusion</h2>
-mybatis의 foreach를 이용하면 쟈바단에서의 퍼포먼스 시간을 줄일 수 있다. 만약 한번의 INSERT 후에 제대로 값이 들어갔는지 확인하여 제대로 안들어갔을때 Rollback 시키기 위해서는 처음 일반적으로 Java단에서 호출하는 방법을 이용해야 할 것이다.
+mybatis의 foreach를 이용하면 쟈바단에서의 퍼포먼스 시간을 줄일 수 있다. 만약 한번의 INSERT 후에 제대로 값이 들어갔는지 확인하여 제대로 안들어갔을때 Rollback 시키기 위해서는 처음 일반적으로 Java단에서 호출하는 방법을 이용해야 할 것이다. <br>
+결국, Database 에서 처리하기 부담스러운 작업은 Java 단에서하고 Darabase 로도 커버가 가능한 작업은 Database 에게 맡기는 고민을 항상 하면서 작업을 해야할 것같다. 
 
 
 <h2>Reference</h2>
