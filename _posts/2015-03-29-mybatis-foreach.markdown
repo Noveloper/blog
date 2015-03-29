@@ -38,7 +38,7 @@ public void insertUserList(List<User> users) {
 <h2>What is problem?</h2>
 생각해보면 코드도 깔끔하고 의미가 명확하여 좋은것같다. 하지만 이 작업을 수행하기 위해서는 예를들어 만약 1000명의 User를 삽입해야 한다면 다음과 같은 작업이 1000번 일어날 것이다. <br>
 <br>
-[ DAO 함수호출 - Mapper 검색 - DB 오픈 - Query 수행 ] x 1000 
+[ DAO 함수호출 - Mapper 검색 - DB 오픈 - Query 수행 ] x 1000 <br>
 <br>
 <bt>
 사실 굵직한 작업으로 많이 간소화해서 그렇지 이거보다 더 많은 작업이 이루어지게 된다. 위에 프로세스에서 오로지 Query 수행만 1000번하게 할 수 업을까?
