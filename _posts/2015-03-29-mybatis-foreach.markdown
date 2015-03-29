@@ -5,11 +5,12 @@ categories: Spring
 ---
 
 이전에 작성했던 포스트중에 INSERT INTO SELECT 에 대해 다뤘던적이 있다. <br>
->>> [INSERT INTO SELECT](http://noveloper.github.io/blog/database/2015/02/26/how-to-insert-multi-row-by-one-try.html)
+- [INSERT INTO SELECT](http://noveloper.github.io/blog/database/2015/02/26/how-to-insert-multi-row-by-one-try.html)
 
-해당 방법은 INSERT를 할 때 기존에 있던 데이터들과 같은 값들을 넣을때 값을 조회하면서 INSERT 하는 다중 INSERT 하는 방식이었다. 
-하지만 매번 다른 값이 들어가야하는 다중 INSERT 를 해야한다면? 그 값은 DAO를 통해서 넘어온다면? 
-일반적으로 생각하는 방법은 다음과같이 Java단에서 List의 forEach 문법을 이용하여 INSERT 함수를 반복 호출하는것이다.
+해당 방법은 INSERT를 할 때 기존에 있던 데이터들과 같은 값들을 넣을때 값을 조회하면서 INSERT 하는 다중 INSERT 하는 방식이었다. <br>
+<br>
+하지만 매번 다른 값이 들어가야하는 다중 INSERT 를 해야한다면? 그 값은 DAO를 통해서 넘어온다면? <br>
+일반적으로 생각하는 방법은 다음과같이 Java단에서 List의 forEach 문법을 이용하여 INSERT 함수를 반복 호출하는것이다. 
 
 ```java
 @Override
@@ -88,7 +89,7 @@ user_type IN
 ```
 
 <h2>conclusion</h2>
-mybatis의 foreach를 이용하면 쟈바단에서의 퍼포먼스 시간을 줄일 수 있다. 만약 한번의 INSERT 트 후에 제대로 값이 들어갔는지 확인하여 제대로 안들어갔을때 Rollback 시키기 위해서는 처음 일반적으로 Java단에서 호출하는 방법을 이용해야 할 것이다.
+mybatis의 foreach를 이용하면 쟈바단에서의 퍼포먼스 시간을 줄일 수 있다. 만약 한번의 INSERT 후에 제대로 값이 들어갔는지 확인하여 제대로 안들어갔을때 Rollback 시키기 위해서는 처음 일반적으로 Java단에서 호출하는 방법을 이용해야 할 것이다.
 
 
 <h2>Reference</h2>
