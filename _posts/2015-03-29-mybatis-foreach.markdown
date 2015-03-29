@@ -4,8 +4,8 @@ title:  Mybatis - foreach
 categories: Spring
 ---
 
-이전에 작성했던 포스트중에 INSERT INTO SELECT 에 대해 다뤘던적이 있다. 
---> [INSERT INTO SELECT](http://noveloper.github.io/blog/database/2015/02/26/how-to-insert-multi-row-by-one-try.html)
+이전에 작성했던 포스트중에 INSERT INTO SELECT 에 대해 다뤘던적이 있다. <br>
+>>> [INSERT INTO SELECT](http://noveloper.github.io/blog/database/2015/02/26/how-to-insert-multi-row-by-one-try.html)
 
 해당 방법은 INSERT를 할 때 기존에 있던 데이터들과 같은 값들을 넣을때 값을 조회하면서 INSERT 하는 다중 INSERT 하는 방식이었다. 
 하지만 매번 다른 값이 들어가야하는 다중 INSERT 를 해야한다면? 그 값은 DAO를 통해서 넘어온다면? 
