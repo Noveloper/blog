@@ -45,6 +45,12 @@ public void insertUserList(List<User> users) {
 <h2>Mabatis - foreach</h2>
 Mybatis에서 제공하는 문법중 foreach를 이용하여 다음과 같이 바꿔보았다.
 
+```java
+@Override
+public void insertUserList(List<User> users) {
+  insertUser("insertUsers", users);
+}
+```
 ```xml
 <insert id ="insertUser" parameterType="User">
 <foreach item="user" index="index" collection="users">
