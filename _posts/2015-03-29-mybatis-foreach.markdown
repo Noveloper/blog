@@ -94,7 +94,7 @@ user_type IN
   ("admin", "designer", "normal")
 ```
 
-<h2>conclusion</h2>
+<h2>Conclusion</h2>
 mybatis의 foreach를 이용하면 쟈바단에서의 퍼포먼스 시간을 줄일 수 있다. 만약 한번의 INSERT 후에 제대로 값이 들어갔는지 확인하여 제대로 안들어갔을때 Rollback 시키기 위해서는 처음 일반적으로 Java단에서 호출하는 방법을 이용해야 할 것이다. <br>
 결국, Database 에서 처리하기 부담스러운 작업은 Java 단에서하고 Database 로도 커버가 가능한 작업은 Database 에게 맡기는 고민을 항상 하면서 작업을 해야할 것같다. 
 
