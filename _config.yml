@@ -12,3 +12,6 @@ github_username: noveloper
 # Build settings
 markdown: redcarpet
 baseurl : "/blog"
+
+comments:
+  disqus: "noveloper"
