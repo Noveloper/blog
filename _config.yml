@@ -10,3 +10,4 @@ baseurl : "/blog"
 
 comments:
   disqus: "noveloper"
+#isso: "comments.mysite.org"
