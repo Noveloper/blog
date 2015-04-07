@@ -52,7 +52,7 @@ public void insertUserList(List<User> users) {
 }
 ```
 ```xml
-<insert id ="insertUser" parameterType="User">
+<insert id ="insertUsers" parameterType="User">
 <foreach item="user" index="index" collection="users">
   INSERT INTO User 
     (user_id
