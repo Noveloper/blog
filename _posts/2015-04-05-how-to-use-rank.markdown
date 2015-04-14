@@ -22,6 +22,44 @@ ANSI 표준 SQL에서 정의된 RANK 함수가 있다. RANK 함수는 레코드�
 ----------------------
 ```
 
+RANK 함수의 문법은 다음과 같다.
+
+```sql
+SELECT 
+  user_id
+  , point
+  , RANK() OVER (ORDER BY point DESC) AS point_rank
+FROM 
+  point_user
+```
+
+이 질의는 포인트와 아이디를 갖고있는 point_user라는 테이블에서 포인트가 많은 사람을 순위별로 정렬하는 질의이다.
+얼핏보면 어렵지만 우리가 잘알고있는 ORDER BY 절을 보면 point로 내림차순한다는 것을 알 수 있다.
+그렇다면 이번에 사용자가 포인트를 사용한 이력이 담긴 point_use_his 란 테이블이 있다고 하면 여기서 각 사용자별로 포인트를 가장 많이 쓴 날을 조회해야한다면 어떨까?
+
+```sql 
+SELECT
+  user_id
+  , use_point
+  , use_date
+  , RANK() OVER (PARTITION BY user_id ORDER BY user_point DESC) AS point_use_rank
+FROM
+  point_use_his
+```
+
+```
+// 결과
+noveloper 3000  2015/04/02  1
+noveloper 2000  2015/04/03  2
+noveloper 1000  2015/03/23  3
+```
+
+PARTITION BY 절을 이용하면 PARTITION BY에 사용된 컬럼을 기준으로 개별로 순위를 부여하게 된다. 
+
+
+
+
+
 <h2>Reference</h2>
 - [Oracle - Rank](http://docs.oracle.com/cd/B19306_01/server.102/b14200/functions123.htm)
 - [Mssql - Rank](https://msdn.microsoft.com/ko-kr/library/ms176102.aspx)
