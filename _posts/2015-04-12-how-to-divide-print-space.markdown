@@ -28,7 +28,13 @@ categories: Javascript
 이전과 달리 html은 웹페이지에 국한되지 않는다. 요즈음은 각 장치에 대응을 하여 표현할 수 있게 CSS에 Media 라는 타입이 존재한다. 이 Media 타입중 print 타입을 이용하여 print 영역을 분할할 수 있다.
 
 ```css
-<div style="page-break-before:always"></div> <!-- 이곳을 기준으로 앞의 내용이 한 페이지 -->
+@media print {
+    p {
+        font-family: georgia, serif;
+        font-size: 14px;
+        color: blue;
+    }
+}
 ```
 
 <h2>Reference</h2>
