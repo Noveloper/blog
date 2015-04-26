@@ -21,3 +21,9 @@ categories: Javascript
 ```
 
 <h2>문제의 시작</h2>
+사실 어찌보면 당연한 문제였다. div의 사이즈가 일정하지 않을 수 있었기 때문에 div 크기에 따라서 출력되는 페이지에 내용이 겹칠 염려가 있었기 때문이다. 그렇다고 div의 크기를 절대 사이즈로 딱 A4용지의 크기 만큼 설정하는것도 좋은 방법이 아니라고 생각했다. 당장의 니즈는 없었지만 추후 sector 한개의 크기가 A4 용지를 넘어버릴 가능성이 충분히 존재했기 때문이다.
+(여기서 '충분히' 란 표현은 개발에서 굉장히 중요하다. 다른 기능도 마찬가지겠지만 저 표현이 들어가는 기능의 개발은 '무조건' 확장이 용이하게 개발해야 되기 때문이다.)
+
+<h2>Reference</h2>
+- [CSS Media types - w3schools.com](http://www.w3schools.com/css/css_mediatypes.asp)
+- [프린트 영역에만 여백 넣기 - Stackoverflow](http://stackoverflow.com/questions/1542320/margin-while-printing-html-page)
