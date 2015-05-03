@@ -21,7 +21,7 @@ Spring에 좀 더 익숙한 개발자는 다음과 같은 문장을 통해서 �
 ```java
 @RequestMapping(value = {"url_1", "url_2", ... "url_n"}, method = ""}
 @RequestMapping(value = url/{param}/, method = ""}
-...
+```
 
 ```java
 1 RequestMapping : n page
