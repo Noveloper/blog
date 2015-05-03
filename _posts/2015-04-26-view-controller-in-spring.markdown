@@ -46,3 +46,12 @@ public String goAbout() {
   return "about";
 }
 ```
+
+큰 소요는 아니지만 귀찮은 작업인건 분명하다. 
+
+지금부터 소개할 View Controller 는 Request Mapping 에서 Handler(Controller)를 찾지 못한 경우, Request Url과 같은 경로에 있는 View 를 찾아 맵핑시켜주는 방법이다.
+
+```java
+ex) /blog/about => /WEB-INF/blog/about.jsp
+```
+
