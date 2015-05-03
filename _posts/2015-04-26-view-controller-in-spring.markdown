@@ -47,6 +47,7 @@ public String goAbout() {
 }
 ```
 
+<br>
 큰 소요는 아니지만 귀찮은 작업인건 분명하다. 
 
 지금부터 소개할 View Controller 는 Request Mapping 에서 Handler(Controller)를 찾지 못한 경우, Request Url과 같은 경로에 있는 View 를 찾아 맵핑시켜주는 방법이다.
@@ -55,12 +56,14 @@ public String goAbout() {
 ex) /blog/about => /WEB-INF/blog/about.jsp
 ```
 
+<br>
 Spring bean 설정 파일에 다음을 추가한다.
 
 ```xml
 <mvc:view-controller path="/*"/>
 ```
 
+<br>
 다음은 View Resolver 를 설정해준다. 만약 JSP Resolver를 설정해야 한다면
 
 ```xml
@@ -72,6 +75,7 @@ Spring bean 설정 파일에 다음을 추가한다.
 </bean>
 ```
 
+<br>
 보다시피 prefix 는 view 페이지 앞에 있는 경로고 suffix는 뒤에 있는 경로인데 이 예제에선 .jsp 라는 확장자가 지정되어있다.
 이 설정은 위에서 예로 들었던 /blog/about URL을 다음과 같은 View로 연결해준다.
 
