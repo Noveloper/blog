@@ -55,3 +55,30 @@ public String goAbout() {
 ex) /blog/about => /WEB-INF/blog/about.jsp
 ```
 
+Spring bean 설정 파일에 다음을 추가한다.
+
+```xml
+<mvc:view-controller path="/*"/>
+```
+
+다음은 View Resolver 를 설정해준다. 만약 JSP Resolver를 설정해야 한다면
+
+```xml
+<!-- JSP View Resolver -->
+<bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	<property name="prefix" value="/WEB-INF/blog/" />
+	<property name="suffix" value=".jsp" />
+</bean>
+```
+
+보다시피 prefix 는 view 페이지 앞에 있는 경로고 suffix는 뒤에 있는 경로인데 이 예제에선 .jsp 라는 확장자가 지정되어있다.
+이 설정은 위에서 예로 들었던 /blog/about URL을 다음과 같은 View로 연결해준다.
+
+```java
+/blog/about => /WEB-INF/blog/about.jsp
+```
+
+<br>
+<h2>Reference</h2>
+- [Web MVC framework - Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
