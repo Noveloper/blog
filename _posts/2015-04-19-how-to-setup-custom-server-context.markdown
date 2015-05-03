@@ -31,5 +31,16 @@ categories: InteliJ
 InteliJ 메뉴에서 File > Project Structure 를 들어간다.
 
 <img src="/blog/image/0419/0419_1.png" alt="Context Tag Setup - 1">
+
+들어가시면 해당 프로젝트에 세부적인 설정을 할 수있는것이 나오고 Module 란에서 하단에 'Add Application Server specific descriptor...' 를 클릭한다.
+
+Application Server를 Tomcat Server로 지정하면 자동적으로 Descriptor가 Tomcat Context Descriptor로 설정이된다.
+
 <img src="/blog/image/0419/0419_2.png" alt="Context Tag Setup - 2">
+
+OK를 눌렀다면 Deployment Descriptor 에 방금 우리가 만든 Tomcat Context Descriptor가 생긴걸 확인할 수 있다. 
+Path에 생성된 곳을 알 수 있고 찾아가서 내용을 수정한다.
+
 <img src="/blog/image/0419/0419_3.png" alt="Context Tag Setup - 3">
+
+이와 같이 작성하고 서버를 재시작하면 Tomcat Base 디렉터리를 복사하여 서버를 설정하는 방법과 동일하게 작동하는것을 확인하였다.
