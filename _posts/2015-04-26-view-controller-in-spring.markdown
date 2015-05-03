@@ -93,3 +93,4 @@ Spring bean 설정 파일에 다음을 추가한다.
 <br>
 <h2>Reference</h2>
 - [Web MVC framework - Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
+- [Spring MVC 3 view controller example](http://www.techzoo.org/spring-framework/spring-mvc-3-view-controller-example.html)
