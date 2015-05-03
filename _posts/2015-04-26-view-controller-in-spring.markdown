@@ -10,12 +10,12 @@ Spring 을 이용해서 Web을 개발할 때 개발자가 가장 친숙하게 �
 @RequestMapping(value = "url", method = "?")
 ```
 
-이 문장에 익숙해진 개발자는 어느순간 다음 공식을 통해서 작업을 할 것이다.
+이 문장에 익숙해진 개발자는 어느순간 자신도 모르게 다음 공식을 통해서 작업을 할 것이다.
 
 ```java
 1 RequestMapping : 1 page
 ```
-
+<br>
 Spring에 좀 더 익숙한 개발자는 다음과 같은 문장을 통해서 공식을 변경할 것이다.
 
 ```java
@@ -27,3 +27,9 @@ Spring에 좀 더 익숙한 개발자는 다음과 같은 문장을 통해서 �
 1 RequestMapping : n page
 ```
 
+<br>
+그럼, 다음 공식은 가능할까?
+
+```java
+0 RequestMapping : 1 page
+```
