@@ -84,5 +84,11 @@ Spring bean 설정 파일에 다음을 추가한다.
 ```
 
 <br>
+<h2>Conclusion</h2>
+
+- View Controller 를 활용하면 페이지를 추가하거나 변경할 때 해당 페이지와 Spring 설정 파일만 변경해주면 되므로 Java 코드는 건드릴 필요가 없다는 장점이 있다. 
+
+
+<br>
 <h2>Reference</h2>
 - [Web MVC framework - Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
