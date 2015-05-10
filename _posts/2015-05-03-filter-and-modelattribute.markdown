@@ -57,7 +57,7 @@ public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 
 @SuppressWarnings("unchecked")
 private HttpServletRequest doXssFiltering(HttpServletRequest req) {
-  XssSaxFilter filter = XssSaxFilter.getInstance("lucy-xss-sax.xml", true);
+  XssSaxFilter filter = XssSaxFilter.getInstance(xss.xml", true);
 	Map<String, String[]> params = req.getParameterMap();
 	
 	for (String key : params.keySet()) {
