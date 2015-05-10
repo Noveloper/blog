@@ -31,7 +31,7 @@ request를 그대로 출력하면 변환이 되어있었고, Model로 받은 객
 - Filter가 잘못됐다.
 
 일단, 변환이 되고 있긴 하므로 Filter 가 잘못된 케이스의 우선순위를 가장 아래로 내려서 생각했다. <br>
-(그리고 가까운 미래 필자는 후회하며 이불킥을 하게된다.)
+(그리고 가까운 미래 나는 후회하며 이불킥을 하게된다.)
 
 <br>
 <h2>Problem of Timing</h2>
@@ -64,9 +64,8 @@ public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
   chain.doFilter(doXssFiltering(req), res);
 }
 
-@SuppressWarnings("unchecked")
 private HttpServletRequest doXssFiltering(HttpServletRequest req) {
-  XssSaxFilter filter = XssSaxFilter.getInstance("xss.xml", true);
+  ...
 	Map<String, String[]> params = req.getParameterMap();
 	
 	for (String key : params.keySet()) {
@@ -105,7 +104,7 @@ chain.doFilter(new MyHttpServletRequestWrapper((HttpServletRequesst)req), res);
 
 <br>
 <h2>Conclusion</h2>
-
+생각보다. 꽤 오랜 삽질을 통해서 해결하였다. 
 
 <br>
 <h2>Reference</h2>
