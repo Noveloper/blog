@@ -20,15 +20,18 @@ public testXSS(@ModelAttribute Person person, HttpServletRequest request) {
 ```
 
 결과가 <b>기이</b>하다. <br>
-request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를 출력하면 변환이 안되었다.
-(밑에서 해결하지만 사실 이때 문제를 눈치챘어야 했다)
+request를 그대로 출력하면 변환이 되어있었고, Model로 받은 객체를 출력하면 변환이 안되어있었다.
 
 <br>
 <h2>Thinking</h2>
 여기서 생각해 볼 수 있는건,
 
 - Filter가 Request 값을 변환하기전에 Model이 Request 먼저 참조해서 값을 설정한다. (타이밍의 문제)
-- Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제 - 사실 이때 문제를 눈치챘어야 했다2)
+- Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제)
+- Filter가 잘못됐다.
+
+일단, 변환이 되고 있긴 하므로 Filter 가 잘못된 케이스의 우선순위를 가장 아래로 내려서 생각했다. <br>
+(그리고 가까운 미래 필자는 후회하며 이불킥을 하게된다.)
 
 <br>
 <h2>Problem of Timing</h2>
@@ -42,10 +45,16 @@ request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를
 
 <br>
 <h2>Problem of Not sharing Request</h2>
-거의 다 온거 같다. 아니 사실, 문제를 찾았다. <br>
-애초에 Filter가 Request의 값을 변환한다는 표현부터가 잘못됐던건 아닐까? <br>
-Filter는 읽은 값을 변경해서 전달하는(필터링) 역할이지 기존값을 변경하는 역할이 아니다.
+사실 이미 컨트롤러단에서 HttpServletRequest 로 받았을때는 아무 문제가 없었으므로 이 가설도 무의미하다. <br>
+그렇다면 @ModelAttribute가 Request에서 값을 어떻게 빼가는 걸까?
 
+<br>
+<h2>Resolve</h2>
+구글 검색을 통해 구글 그룹스에 유사한 내용이 있어서 읽어보았는데 @ModelAttribute 는 request의 getParameterValues 를 통해 값을 언어온다고 한다. 관련한 Spring 문서는 찾지 못했지만 이 근거를 가지고 구현된 Filter 소스를 다시 보았다. <br>
+<br>
+애초에 Filter가 Request의 값을 변환한다는 표현부터가 잘못됐던건 아닐까? <br>
+Filter는 읽은 값을 변경해서 전달하는(필터링) 역할이지 기존값을 변경하는 역할이 아니다. <br>
+<br>
 다음은 문제가 된 XSS Filter 소스의 일부이다. 
 
 ```java
@@ -71,11 +80,35 @@ private HttpServletRequest doXssFiltering(HttpServletRequest req) {
 }
 ```
 
-Filter 에서 Request의 getParameterMap 값을 얻어와서 String의 참조점을 변경하고 있다. 
+Filter 에서 Request의 getParameterMap 값만을 얻어와서 String을 변경하고 있다. 일단 getParameterMap 만을 사용하였기 때문에 보장도 안되거니와 Filter에서 직접 String 을 replace 하는건 좋지못한 방법같다. <br>
+<br>
+다음과 같은 Wrapper 클래스를 만들어서 request에서 값을 읽어 들일때 변환하도록 하였다.
+
+```java
+// Wrapper Class
+class MyHttpServletRequestWrapper {
+@Override
+public String getParameter() {/* 변환후 리턴 */}
+@Override
+public String[] getParameterValues() {/* 변환후 리턴 */}
+@Override
+public Map<String, String[]> getParameterMap() {/* 변환후 리턴 */}
+}
+```
+
+```java
+// Filter 
+...
+chain.doFilter(new MyHttpServletRequestWrapper((HttpServletRequesst)req), res);
+...
+```
+
+<br>
+<h2>Conclusion</h2>
 
 
+<br>
 <h2>Reference</h2>
 
 - [servlet filter 사용시의 @ModelAttribute - Google Groups](https://groups.google.com/forum/#!topic/ksug/guylCNnlnqY)
 - [그림1 - Spring MVC Request Lifecycle](http://changpd.blogspot.kr/2013/03/spring.html)
-- []
