@@ -19,6 +19,6 @@ public testXSS(@ModelAttribute Person person, HttpServletRequest request) {
 }
 ```
 
-결과가 기이하다.
+결과가 <u>기이</u>하다. <br>
 request를 그대로 출력하면 변환이 되있고, Model로 받은 객체를 출력하면 변환이 안되었다.
 
