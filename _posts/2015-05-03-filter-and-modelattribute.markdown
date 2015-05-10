@@ -57,7 +57,7 @@ public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 
 @SuppressWarnings("unchecked")
 private HttpServletRequest doXssFiltering(HttpServletRequest req) {
-  XssSaxFilter filter = XssSaxFilter.getInstance(xss.xml", true);
+  XssSaxFilter filter = XssSaxFilter.getInstance("xss.xml", true);
 	Map<String, String[]> params = req.getParameterMap();
 	
 	for (String key : params.keySet()) {
@@ -71,7 +71,11 @@ private HttpServletRequest doXssFiltering(HttpServletRequest req) {
 }
 ```
 
+Filter 에서 Request의 getParameterMap 값을 얻어와서 String의 참조점을 변경하고 있다. 
+
 
 <h2>Reference</h2>
 
 - [servlet filter 사용시의 @ModelAttribute - Google Groups](https://groups.google.com/forum/#!topic/ksug/guylCNnlnqY)
+- [그림1 - Spring MVC Request Lifecycle](http://changpd.blogspot.kr/2013/03/spring.html)
+- []
