@@ -34,3 +34,4 @@ request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를
 다음은 Spring 에서 Request의 Lifecycle 이다.
 
 <img src="/blog/image/0503/0503_1.jpg">
+[ 그림1 - Spring MVC Request Lifecycle ]
