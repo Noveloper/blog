@@ -20,5 +20,12 @@ public testXSS(@ModelAttribute Person person, HttpServletRequest request) {
 ```
 
 결과가 <b>기이</b>하다. <br>
-request를 그대로 출력하면 변환이 되있고, Model로 받은 객체를 출력하면 변환이 안되었다.
+request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를 출력하면 변환이 안되었다.
+
+<br>
+<h2>Thinking</h2>
+여기서 생각해 볼 수 있는건,
+
+- Filter가 Request 값을 변환하기전에 Model에 Request 값을 설정한다. (타이밍의 문제)
+- Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제)
 
