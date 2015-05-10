@@ -21,17 +21,30 @@ public testXSS(@ModelAttribute Person person, HttpServletRequest request) {
 
 결과가 <b>기이</b>하다. <br>
 request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를 출력하면 변환이 안되었다.
+(밑에서 해결하지만 사실 이때 문제를 눈치챘어야 했다)
 
 <br>
 <h2>Thinking</h2>
 여기서 생각해 볼 수 있는건,
 
 - Filter가 Request 값을 변환하기전에 Model이 Request 먼저 참조해서 값을 설정한다. (타이밍의 문제)
-- Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제)
+- Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제 - 사실 이때 문제를 눈치챘어야 했다2)
 
 <br>
 <h2>Problem of Timing</h2>
 다음은 Spring 에서 Request의 Lifecycle 이다.
 
-<img src="/blog/image/0503/0503_1.jpg">
+<img src="/blog/image/0503/0503_1.jpg" />
+
 [ 그림1 - Spring MVC Request Lifecycle ]
+
+보면 사용자에게서 온 Request가 제일 먼저 Filter 를 거치기 때문에 타이밍의 문제는 아닌거 같다.
+
+<br>
+<h2>Problem of Not sharing Request</h2>
+거의 다 온거 같다. 아니 사실, 문제를 찾았다. 아주 기초적인데 Request 의 값은 읽기전용인데 변경하려한게 잘못이다. 
+
+
+<h2>Reference</h2>
+
+- [servlet filter 사용시의 @ModelAttribute - Google Groups](https://groups.google.com/forum/#!topic/ksug/guylCNnlnqY)
