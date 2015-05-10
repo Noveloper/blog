@@ -42,7 +42,34 @@ request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를
 
 <br>
 <h2>Problem of Not sharing Request</h2>
-거의 다 온거 같다. 아니 사실, 문제를 찾았다. 아주 기초적인데 Request 의 값은 읽기전용인데 변경하려한게 잘못이다. 
+거의 다 온거 같다. 아니 사실, 문제를 찾았다. <br>
+애초에 Filter가 Request의 값을 변환한다는 표현부터가 잘못됐던건 아닐까? <br>
+Filter는 읽은 값을 변경해서 전달하는(필터링) 역할이지 기존값을 변경하는 역할이 아니다.
+
+다음은 문제가 된 XSS Filter 소스의 일부이다. 
+
+```java
+@Override
+public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+  HttpServletRequest request = (HttpServletRequest)req;
+  chain.doFilter(doXssFiltering(req), res);
+}
+
+@SuppressWarnings("unchecked")
+private HttpServletRequest doXssFiltering(HttpServletRequest req) {
+  XssSaxFilter filter = XssSaxFilter.getInstance("lucy-xss-sax.xml", true);
+	Map<String, String[]> params = req.getParameterMap();
+	
+	for (String key : params.keySet()) {
+		String[] values = params.get(key);
+		for (int i = 0; i < values.length; i++) {
+			values[i] = filter.doFilter(values[i]).replace("\"", "&#34;");
+		}
+	}
+	
+	return req;
+}
+```
 
 
 <h2>Reference</h2>
