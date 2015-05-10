@@ -26,6 +26,11 @@ request를 그대로 출력하면 변환이 되었고, Model로 받은 객체를
 <h2>Thinking</h2>
 여기서 생각해 볼 수 있는건,
 
-- Filter가 Request 값을 변환하기전에 Model에 Request 값을 설정한다. (타이밍의 문제)
+- Filter가 Request 값을 변환하기전에 Model이 Request 먼저 참조해서 값을 설정한다. (타이밍의 문제)
 - Filter가 변환한 Request와 Model이 참조하는 Request가 다른 객체이다. (자원 비공유의 문제)
 
+<br>
+<h2>Problem of Timing</h2>
+다음은 Spring 에서 Request의 Lifecycle 이다.
+
+<img src="/blog/image/0503/0503_1.jpg">
