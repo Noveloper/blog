@@ -20,7 +20,7 @@ public List<Address> parseAddressList(String jsonString) {
   JSONObject resultJSON = new JSONObject(jsonString);
   JSONObject headerJSON = resultJSON.getJSONObject("header");
   JSONObject bodyJSON = null;
-  if (header.getBoolean("")) {
+  if (header.getBoolean("isSuccess")) {
     bodyJSON = resultJSON.getJSONObject("body");
     // add address to addresses
   } else {
@@ -28,6 +28,8 @@ public List<Address> parseAddressList(String jsonString) {
   }
 }
 ```
+
+org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때문에 가독성 좋은 코드를 짜기에 용이하다. 위 코드만 보더라도 전체 JSON 객체에서 header를 뽑아내어 header의 결과 플래그가 true 일 경우에만 body에 대한 작업을 수행한다. 
 
 
 <h2>JsonParser class</h2>
