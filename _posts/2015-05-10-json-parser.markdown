@@ -101,5 +101,6 @@ JsonParser 클래스 내부적으로 [JsonParser.Event](https://json-processing-
 설명이 부족한데 나도 공부하면서 한거라 아직 사용법에 익숙치 않고 실제 프로젝트에는 JDK버전 호환 문제도 있어 위에서 org.json 패키지를 사용한 방법으로 구현하였다. switch 로 분기한 부분을 메서드로 잘 추출하면 그럴듯한 코드가 나오지 않을까라고 기대도 해보고 단지 Parser 뿐만 아니라 JsonWriter, JsonReader 같은 클래스도 지원하니 일단 이런게 있다는걸 알아두는 단계로 이번엔 넘어가야겠다.
 
 <h2>Reference</h2>
+- [javax.json Package](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html)
 - [JsonParser Documentation](http://docs.oracle.com/javaee/7/api/javax/json/stream/JsonParser.html)
 - [org.json Package](http://www.json.org/javadoc/)
