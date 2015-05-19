@@ -29,24 +29,60 @@ public List<Address> parseAddressList(String jsonString) {
 }
 ```
 <br>
-org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때문에 가독성 좋은 코드를 짜기에 용이하다. 사실 이렇게 작성해도 별 상관은 없지만 왠지 새로운걸 해보고 싶었다.
+org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때문에 가독성 좋은 코드를 짜기에 용이하다. 
 
 <br>
 <h2>JsonParser class</h2>
-Java EE 7 버전부터 있는 [javax.json](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html) 패키지에는 새로운 JSON 처리 클래스들을 지원한다. <br>
-
-```json
-{
- "firstName": "John", "lastName": "Smith", "age": 25,
- "phoneNumber": [
-     { "type": "home", "number": "212 555-1234" },
-     { "type": "fax", "number": "646 555-4567" }
-  ]
-}
-```
+다른 방법을 찾아보다가 Java EE 7 버전부터 있는 [javax.json](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html) 패키지를 알게되었는데 새로운 JSON 처리 클래스들을 지원한다. <br>
 
 ```java
+Json
 JsonParser
+JsonParser.Event
+```
+
+위에서 org.json 패키지를 활용해서 작성했던 코드를 이를 이용해서 변경하면 대충 다음과 같다.
+
+```java
+import javax.json.Json;
+import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParser.Event;
+...
+...
+public List<Address> parseAddressList(String jsonString) {
+  List<Address> addresses = new List<Address>();
+  
+  JsonParser parser = Json.createParser(new StringReader(jsonString));
+  String keyName = null;
+  
+  while (parser.hasNext()) {
+    Event event = parser.next();
+    Address address = new Address();
+    
+    switch (event) {
+      case KEY_NAME:
+        keyName = parser.getString();
+        break;
+      case VALUE_STRING:
+        // process to String Value
+        break;
+      case VALUE_NUMBER:
+        // process to Number Value
+        break;
+      case VALUE_FALSE:
+        // process to boolean Value : False
+        break;
+      case VALUE_TRUE:
+        // process to boolean Value : True
+        break;
+      case VALUE_NULL:
+        // white space, don't anything
+        break;
+    }
+    
+    addresses.add(address);
+  }
+}
 ```
 
 
