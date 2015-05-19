@@ -93,9 +93,8 @@ public List<Address> parseAddressList(String jsonString) {
 }
 ```
 <br>
-JsonParser 클래스 내부적으로 [JsonParser.Event](https://json-processing-spec.java.net/nonav/releases/1.0/pr-draft/javadocs/javax/json/stream/JsonParser.Event.html) 라는 enum을 갖는데 이 enum은 현재 JSON 문자열의 어느 지점인지를 알게 해준다. 단일 JSON 객체의 시작인지 배열의 시작인지, 키에 있는지 값에 있는지 등. <br>
-<br>
-예를들어 이 JSON 문자열이 boolean 값을 오직 header에 isSuccess 한개라면 VALUE_FALSE 부분에 에러처리를 하면 된다. 위와 같은 방법이 아니더라도 [JsonValue](https://docs.oracle.com/javaee/7/api/javax/json/JsonValue.html) 라는 인터페이스를 상속한 JsonObject 와 JsonArray를 이용하면 먼저 org.json 패키지를 사용해서 작성한 코드와 거의 유사하게 작성할 수 있는것 같다.
+JsonParser 클래스 내부적으로 [JsonParser.Event](https://json-processing-spec.java.net/nonav/releases/1.0/pr-draft/javadocs/javax/json/stream/JsonParser.Event.html) 라는 enum을 갖는데 이 enum은 현재 JSON 문자열의 어느 지점인지를 알게 해준다. 단일 JSON 객체의 시작인지 배열의 시작인지, 키에 있는지 값에 있는지 등. 예를들어 이 JSON 문자열이 boolean 값을 오직 header에 isSuccess 한개라면 VALUE_FALSE 부분에 에러처리를 하면 된다. <br>
+위와 같은 방법이 아니더라도 [JsonValue](https://docs.oracle.com/javaee/7/api/javax/json/JsonValue.html) 라는 인터페이스를 상속한 JsonObject 와 JsonArray를 이용하면 먼저 org.json 패키지를 사용해서 작성한 코드와 거의 유사하게 작성할 수 있는것 같다.
 
 <br>
 <h2>Conclusion</h2>
