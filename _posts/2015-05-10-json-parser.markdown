@@ -21,17 +21,24 @@ public List<Address> parseAddressList(String jsonString) {
   JSONObject bodyJSON = null;
   if (header.getBoolean("isSuccess")) {
     bodyJSON = resultJSON.getJSONObject("body");
-    // add address to addresses
+    JSONArray addressesJSON = bodyJSON.getJSONArray("addresses");
+    // parse and add address to addresses
   } else {
     // error 
   }
 }
 ```
 <br>
-org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때문에 가독성 좋은 코드를 짜기에 용이하다. 위 코드만 보더라도 전체 JSON 객체에서 header를 뽑아내어 header의 결과 플래그가 true 일 경우에만 body에 대한 작업을 수행한다. 
+org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때문에 가독성 좋은 코드를 짜기에 용이하다. 사실 이렇게 작성해도 별 상관은 없지만 왠지 새로운걸 해보고 싶었다.
 
-
+<br>
 <h2>JsonParser class</h2>
+Java EE 7 버전부터 있는 [javax.json](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html) 패키지에는 새로운 JSON 처리 클래스들을 지원한다. <br>
+
+
+```java
+JsonParser
+```
 
 
 <h2>Reference</h2>
