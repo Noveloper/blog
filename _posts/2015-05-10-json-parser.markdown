@@ -35,6 +35,15 @@ org.json 패키지에서 에서 제공하는 메서드는 굉장히 많기 때�
 <h2>JsonParser class</h2>
 Java EE 7 버전부터 있는 [javax.json](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html) 패키지에는 새로운 JSON 처리 클래스들을 지원한다. <br>
 
+```json
+{
+ "firstName": "John", "lastName": "Smith", "age": 25,
+ "phoneNumber": [
+     { "type": "home", "number": "212 555-1234" },
+     { "type": "fax", "number": "646 555-4567" }
+  ]
+}
+```
 
 ```java
 JsonParser
