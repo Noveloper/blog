@@ -84,6 +84,31 @@ DisasterObserver 클래스는 이름 그대로 나무의 현재 정보에 따라
 SellerObserver 클래스는 나무의 현재 정보에 따라 그 나무의 가치를 갱신하는 Observer 클래스이다. 현재 이 나무가 건강한 상태인지 앞으로 기대되는 성장률은 얼마인지를 판단하여 가치를 갱신한다. 복숭아 나무의 가치가 상록수의 가치보다 높은 대신 건강한 상태와 높은 성장률을 기대하기 어렵다는 설정이다.
 
 
+```java
+Tree peachTree = new PeachTree();
+Tree evergreenTree = new EvergreenTree();
+peachTree.addObserver(new DiasterObserver());
+peachTree.addObserver(new SellerObserver());
+evergreenTree.addObserver(new DiasterObserver());
+evergreenTree.addObserver(new SellerObserver());
+```
+
+나무에 Observer 들을 등록하는 부분이다. 위에서 Android 를 잠깐 언급했지만 Android나 Java Swing 을 해본사람이라면 위와 같은 형태의 코드를 많이 접했을 것이다.
+
+그렇다. 바로 UI 컴포넌트들에 이벤트 리스너를 등록하는 코드와 아주 흡사하다.
+
+```java
+Button btnGiveWater = new Button();
+btnGiveWater.onClickListener(new MyClickListener());
+```
+
+바로 이 이벤트 리스너를 등록하는 방식이 이 옵저버 패턴으로부터 비롯되었기 때문이다.
+
+
+<h2>정리</h2>
+만약, Observer 패턴을 모르고서 저 Disaster 와 Seller 같은 처리를 하기 위해서 내가 가장 처음 생각했을 방법은 메인 스레드 뒤에서 계속해서 돌면서 나무의 상태를 체크하며 사건을 발생시키는 데몬 스레드들로 만드는 것일것이다. 실제로 저 프로젝트를 진행할 때 Observer 패턴을 몰랐기 때문에 리소스를 많이 잡아먹는 문제에도 불구하고 그렇게 작성했었다. 
+
+
 
 <h2>Reference</h2>
  - [Java 언어로 배우는 디자인 패턴 입문](http://book.naver.com/bookdb/book_detail.nhn?bid=4529127)
