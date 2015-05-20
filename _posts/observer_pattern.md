@@ -32,8 +32,57 @@ public abstract class Tree {
    o.update(this);
   }
  }
+ public abstract void giveWater();
+ public abstract void cutBranch();
 }
 ```
+
+이 나무(Tree) 클래스는 실제로 생략된 부분이 많지만 스마트폰 화면에 보여지는 나무에 대한 상태를 표현한 추상 클래스이다. 물을 주는 행위(giveWater)와 가지치는 행위(cutBranch)는 하위 클래스에서 구현되도록 한다.
+
+```java
+public vlass PeachTree extends Tree {
+  public void giveWater() {
+    // change state : amount of water in tree
+    notifyObservers();
+  }
+  public void cutBranch() {
+    // change state : amount of branch in tree
+    notifyObservers();
+  }
+}
+
+public vlass EvergreenTree extends Tree {
+  public void giveWater() {
+    // change state : amount of water in tree
+    notifyObservers();
+  }
+  public void cutBranch() {
+    // change state : amount of branch in tree
+    notifyObservers();
+  }
+}
+```
+
+PeachTree는 복숭아 나무를 뜻하고 EvergreenTree 는 상록수를 뜻하는 클래스로서 화면에서 사용자의 Action 으로 인해 giveWater 와 cutBranch 가 수행되고 나무의 수분 상태나 가지 상태에 따라 특정한 사건이 발생된다.
+
+```java
+public class DisasterObserver implements Observer {
+  public void update(Tree tree) {
+    // occur disaster
+  }
+}
+
+public class SellerObserver implements Observer {
+  public void update(Tree tree) {
+    // cacluate value of tree
+  }
+}
+```
+
+DisasterObserver 클래스는 이름 그대로 나무의 현재 정보에 따라 재난을 발생시키는 Observer 클래스이다. 나무에 현재 수분이 적으면 말라 비틀어진다거나 친구들에게 푸쉬로 도움을 달라는 요청을 보내기도 한다. 또한, 가지 상태와 수분 상태에 따라 병충해가 발생하기도 한다. 복숭아 나무(PeachTree)는 각 상태에 민감하고 상록수(EvergreenTree)는 각 상태에 둔감하여 키우기가 복숭아 나무 보다 용이하다는 설정이다.
+
+SellerObserver 클래스는 나무의 현재 정보에 따라 그 나무의 가치를 갱신하는 Observer 클래스이다. 현재 이 나무가 건강한 상태인지 앞으로 기대되는 성장률은 얼마인지를 판단하여 가치를 갱신한다. 복숭아 나무의 가치가 상록수의 가치보다 높은 대신 건강한 상태와 높은 성장률을 기대하기 어렵다는 설정이다.
+
 
 
 <h2>Reference</h2>
