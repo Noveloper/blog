@@ -115,9 +115,9 @@ Button btnGiveWater = new Button();
 btnGiveWater.onClickListener(new MyClickListener());
 ```
 
-바로 이 이벤트 리스너를 등록하는 방식이 이 Observer 패턴으로부터 비롯되었기 때문이다.
-<br>
-Observer 패턴에 대해서 마지막으로 정리하자면,
+바로 이 이벤트 리스너를 등록하는 방식이 Observer 패턴으로부터 비롯되었기 때문이다.
+<br><br>
+Observer 패턴에 대해서 마지막으로 정리하자면, <br>
 
 - 메모리 리소스 활용 : 언제 일어날지 모르는 사건에 대하여 계속 돌고 있는 스레드를 만드는것보다 사건이 일어났을때마다 객체에게 알려주어(Notify) 상태를 변경(Update) 해주는 면에서 효율적이다. 
 - 사실은 수동적이다 : Observer 패턴은 '관찰자' 라는 의미이지만 실제로는 우리가 구현한것처럼 '전달받는 역할' 이다. 관찰 대상이 되는 객체로 부터 상태값이 변경 되었다는것을 수동적으로 기다리고 있기 때문에 Observer 패턴은 Publish-Subscribe 패턴이라고도 하는데 명확한 이해를 위해서는 개인적으로 더 좋은 표현이라고 생각한다. <br>
