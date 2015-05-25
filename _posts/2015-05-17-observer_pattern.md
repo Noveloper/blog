@@ -19,20 +19,19 @@ categories: Desginpattern
 
 ![Observer Pattern](http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Observer.svg/854px-Observer.svg.png "출처: http://en.wikipedia.org/wiki/Observer_pattern")
 
-
-
-<h2>예제</h2>
-내가 예전에 '증강현실 식물키우기' 라는 Android App을 개발하다가 중간에 중단했었는데 그 프로젝트에 쓰였던 클래스들과 책에 나온 예제를 섞어서 예제로 들어보겠다. 
-
 <br>
+<h2>적용</h2>
+그럼 한번 적용해보자. <br>
+이전에 스레드로 돌렸다는 코드가 있었다는것만 알아두고 Observer 패턴을 어떤식으로 적용했을지에 대해서만 얘기하겠다. <br>
+
 ```java
 public interface Observer {
  public abstract void update(Tree tree);
 }
 ```
-Observer 인터페이스는 Tree 라는 객체를 관찰하는 인터페이스고 구체적으로 관찰하며 어떻게 상태를 업데이트 할 것인지는 이 인터페이스를 구현해서 작성한다.
-
 <br>
+Observer 인터페이스는 Tree 라는 객체를 관찰하는 인터페이스고 관찰하며 구체적으로 어떻게 상태를 업데이트 할 것인지는 이 인터페이스를 구현해서 작성한다.
+
 ```java
 public abstract class Tree {
  private ArrayList<Observer> observers = new ArrayList<Observer>();
