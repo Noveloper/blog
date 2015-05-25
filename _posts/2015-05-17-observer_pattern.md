@@ -1,3 +1,10 @@
+---
+layout: post
+title:  Observer Pattren
+categories: Desginpattren
+---
+
+
 <h1>Observer 패턴</h1>
 
 <h2>Observer 패턴이란?</h2>
