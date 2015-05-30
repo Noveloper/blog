@@ -11,7 +11,7 @@ categories: Javascript
 
 jQuery의 함수를 사용해서 이를 해결해보자. <br>
 
-
+<br>
 <h2>isNumeric</h2>
 
 이름만 봐도 어떤 함수인지 알 수 있듯이 파라미터로 넘어온 값이 '수' 인지 아닌지를 판단할 수 있는 함수다. 
@@ -44,10 +44,8 @@ if ($.isNumeric($("#ordNo").val())) {
 
 ```javascript
 var ordNos = [];
-var realCnt = 0;
 
 $("input[name='ordNo']").each(function (i, v) {
-  ++realCnt;
   if ($.inArray(v, ordNos) != -1) {
     ordNos.put(v);
   } else {
