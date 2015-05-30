@@ -33,6 +33,29 @@ if ($.isNumeric($("#ordNo").val())) {
   
 ```
 
+<br>
+<h2>inArray</h2>
+
+중복된 값을 처리하기 위해서 Java의 Collection 클래스의 contains 메서드와 같은것이 분명히 있을거라고 생각하고 찾아보았는데 역시나 있었다. 어떤 소설에서 본 문장이지만 있지 않을까 하며 찾기 보다 반드시 있다라며 찾는건 검색 속도도 효율도 다르단다.
+<br>
+
+다시 본론으로 넘어가서 jQuery의 inArray 함수를 사용하면 중복 처리를 다음과 같이 할 수 있다.
+
+```javascript
+var ordNos = [];
+
+$("input[name='ordNo']").each(function(i) {
+  if ($.inArray($(this).val(), ordNos) != -1) {
+    ordNos.put($(this).val());
+  } else {
+    // error process
+    return true; // break
+  }
+};
+
+```
+ 
+
 <h2>Reference</h2>
 
 - [isNuemric Documentation](https://api.jquery.com/jQuery.isNumeric/)
