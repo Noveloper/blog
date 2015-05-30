@@ -43,19 +43,22 @@ if ($.isNumeric($("#ordNo").val())) {
 
 ```javascript
 var ordNos = [];
+var realCnt = 0;
 
-$("input[name='ordNo']").each(function(i) {
-  if ($.inArray($(this).val(), ordNos) != -1) {
-    ordNos.put($(this).val());
+$("input[name='ordNo']").each(function (i, v) {
+  ++realCnt;
+  if ($.inArray(v, ordNos) != -1) {
+    ordNos.put(v);
   } else {
     // error process
-    return true; // break
   }
 };
-
 ```
- 
 
+<br>
+inArray 는 존재하면 해당 값의 인덱스를, 없으면 -1을 반환한다.
+ 
+<br>
 <h2>Reference</h2>
 
 - [isNuemric Documentation](https://api.jquery.com/jQuery.isNumeric/)
