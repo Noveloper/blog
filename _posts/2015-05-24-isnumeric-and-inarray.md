@@ -21,6 +21,17 @@ $.isNumeric("23") // true
 $.isNumeric("23.0") // true
 $.isNumeric("이십삼") // false
 ```
+<br> 
+사용예는 다음과 같다. 
+
+```javascript
+if ($.isNumeric($("#ordNo").val())) {
+  // success process
+} else {
+  // error process
+}
+  
+```
 
 <h2>Reference</h2>
 
