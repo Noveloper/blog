@@ -8,9 +8,9 @@ Database 에서 select 절을 이용해 데이터를 조회할 때 mybatis 의 r
 mybatis resultMap의 기능중 assocation 과 collection 에 대해서 알아보자. <br>
 
 <h2>Association (has one)</h2>
-Association 은 has one 타입의 관계를 다룰 때 사용하는데 예를들어 어떤 시험지(Sheet)를 푸는학생(Stuent)은 한명이다. 해당 시험지를 조회하면서 그 학생을 조회하려고 association 관계를 걸어서 같이 조회하게 다음과 같이 코드를 작성할 수 있다.
+Association은 has one 타입의 관계를 다룰 때 사용하는데 예를들어 어떤 시험지(Sheet)를 푸는학생(Stuent)은 한명이다. 해당 시험지를 조회하면서 그 학생을 조회하려고 association 관계를 걸어서 같이 조회하게 다음과 같이 코드를 작성할 수 있다.
 
-```
+```java
 class Sheet {
   ...
   Student student;
@@ -25,25 +25,53 @@ class Student {
 ```mybatis
 // 1. Sheet resultMap 작성
 <resultMap id="sheetResult" type="com.xxx.Sheet">
-  <association property="student" column="student_id" javaType="Student" select="selectStudent"/>
+  <association property="student" column="stuendId" javaType="Student" select="selectStudent"/>
 </resultMap>
 
 // 2. sheet 조회
 <select id="selectSheet" resultMap="sheetResult">
-  SELECT ..., student_id, ... FROM BLOG WHERE ID = #{id}
+  SELECT ..., student_id studentId, ... FROM sheet WHERE sheet_id = #{sheetId}
 </select>
 
 // 3. student 조회
 <select id="selectStudent" resultType="Student">
-  SELECT student_id studentId, ... FROM AUTHOR WHERE ID = #{student_id}
+  SELECT student_id studentId, ... FROM student WHERE student_id = #{studentId}
 </select>
 ```
 
-association 태그에 column 은 조회할 selectStudent의 파라미터로 전달된다.
+association 태그에 column 은 조회할 selectStudent의 파라미터로 전달되고 sheet를 조회하면서 함께 student를 조회하여 Sheet 인스턴스 안에 멤버변수로 있는 Student 인스턴스의 내용도 채워지게 된다. <br>
 
 
-<h2>Association (has many)</h2>
+<h2>Collection (has many)</h2>
+Collection은 has many 타입의 관계를 다룰 때 사용한다. 위에 예에서 응용하여 하나의 Sheet에는 여러 문항(Pool)들이 들어있을 때 해당 문항 리스트를 얻어올 때 다음과 같이 작성할 수 있다.
 
+```java
+class Sheet {
+  ...
+  Student student;
+  List<Pool> pools;
+}
+
+class Pool {
+  ...
+  int sheetId;
+  ...
+}
+```
+
+```
+<resultMap id="sheetResult" type="Sheet">
+  <collection property="pools" javaType="java.lang.ArrayList" column="sheetId" ofType="Pool" select="selectPools"/>
+</resultMap>
+
+<select id="selectSheet" resultMap="sheetResult">
+  SELECT sheet_id sheetId, .... , FROM sheet WHERE sheet_id = #{sheetId}
+</select>
+
+<select id="selectPools" resultType="Blog">
+  SELECT * FROM pool WHERE sheet_id = #{sheetId}
+</select>
+```
 
 <h2>Reference</h2
 
