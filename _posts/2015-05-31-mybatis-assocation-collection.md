@@ -22,7 +22,7 @@ class Student {
 }
 ```
 
-```mybatis
+```xml
 <resultMap id="sheetResult" type="com.xxx.Sheet">
   <association property="student" column="stuendId" javaType="Student" select="selectStudent"/>
 </resultMap>
@@ -56,7 +56,7 @@ class Pool {
 }
 ```
 
-```
+```xml
 <resultMap id="sheetResult" type="Sheet">
   <collection property="pools" javaType="java.lang.ArrayList" column="sheetId" ofType="Pool" select="selectPools"/>
 </resultMap>
