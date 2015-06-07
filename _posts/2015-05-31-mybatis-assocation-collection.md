@@ -23,17 +23,14 @@ class Student {
 ```
 
 ```mybatis
-// 1. Sheet resultMap 작성
 <resultMap id="sheetResult" type="com.xxx.Sheet">
   <association property="student" column="stuendId" javaType="Student" select="selectStudent"/>
 </resultMap>
 
-// 2. sheet 조회
 <select id="selectSheet" resultMap="sheetResult">
   SELECT ..., student_id studentId, ... FROM sheet WHERE sheet_id = #{sheetId}
 </select>
 
-// 3. student 조회
 <select id="selectStudent" resultType="Student">
   SELECT student_id studentId, ... FROM student WHERE student_id = #{studentId}
 </select>
@@ -68,11 +65,13 @@ class Pool {
   SELECT sheet_id sheetId, .... , FROM sheet WHERE sheet_id = #{sheetId}
 </select>
 
-<select id="selectPools" resultType="Blog">
+<select id="selectPools" resultType="Pool">
   SELECT * FROM pool WHERE sheet_id = #{sheetId}
 </select>
 ```
 
-<h2>Reference</h2
+collection 태그에 javaType으로 ArrayList를 지정해주었고 해당 List의 제네릭 타이을 Pool 로 지정해준 코드이다. 이렇게하면 시험지(sheet)를 조회하면서 시험지에 해당하는 문항(pool)들을 List에 담을 수 있다.
+
+<h2>Reference</h2>
 
 - [Mybatis ResultMap](https://mybatis.github.io/mybatis-3/ko/sqlmap-xml.html)
