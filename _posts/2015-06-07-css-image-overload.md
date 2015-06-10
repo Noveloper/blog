@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  css - Image 겹치기
+title:  CSS - Image 겹치기
 categories: css
 ---
 
