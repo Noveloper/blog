@@ -12,7 +12,7 @@ position의 default 값은 static이며 이는 해당 document에 그려지는 e
 relative는 기본 위치에서 해당 element를 이동시켜준고 td 정렬 기준으로 div 전반부를 사용한다. <br>
 absolute는 가장 가까운 곳에 위치한 조상 엘리먼트에 상대적으로 위치가 조정된다. <br>
 
-내 코드의 구조가 td > div > img 로 되있었으므로 다음과 같이 작성하면 들어오는 해당 td에 들어가는 이미지에 한해서 겹쳐지게 된다. 
+내 코드의 구조가 td > div > img 로 되있었으므로 다음과 같이 작성하면 해당 td에 들어가는 이미지에 한해서 겹쳐지게 된다. 
 
 ```html
 <td>
@@ -22,7 +22,8 @@ absolute는 가장 가까운 곳에 위치한 조상 엘리먼트에 상대적�
 </td>
 ```
 
-<h2></h2>
+<br>
+absolute 로 지정하면 td 정렬 기준으로 div 왼쪽 영역부터 채워지니 이점 고려해서 left, top, padding 프로퍼티 값을 부여해서 컨트롤 하면 원하는 위치로 img 태그를 놓을 수 있다.
 
 <h2>Reference</h2>
 
