@@ -17,7 +17,7 @@ absolute는 가장 가까운 곳에 위치한 조상 엘리먼트에 상대적�
 ```html
 <td>
   <div style="position: relative;">
-    <img style="position: absolute;/>
+    <img style="position: absolute;"/>
   </div>
 </td>
 ```
