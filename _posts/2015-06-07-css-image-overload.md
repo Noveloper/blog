@@ -15,7 +15,11 @@ absolute는 가장 가까운 곳에 위치한 조상 엘리먼트에 상대적�
 내 코드의 구조가 td > div > img 로 되있었으므로 다음과 같이 작성하면 들어오는 해당 td에 들어가는 이미지에 한해서 겹쳐지게 된다. 
 
 ```html
-
+<td>
+  <div style="position: relative;">
+    <img style="position: absolute;/>
+  </div>
+</td>
 ```
 
 <h2></h2>
