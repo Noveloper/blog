@@ -9,9 +9,9 @@ categories: css
 <h2>Solution</h2>
 이미지를 겹치기 위해서 Style 프로퍼티의 Position을 이해해야 한다. <br>
 position의 default 값은 static이며 이는 해당 document에 그려지는 element 순서대로 위치하게 한다. <br>
-내가 사용할것은 relative로서 기본 위치에서 해당 element를 이동시켜준다. <br>
+내가 사용할것은 relative로서 기본 위치에서 해당 element를 이동시켜준다. ([사용예](http://www.w3schools.com/cssref/tryit.asp?filename=trycss_position_relative)) <br>
 
-<include>http://www.w3schools.com/cssref/tryit.asp?filename=trycss_position_relative</include>
+
 
 <h2>Reference</h2>
 
