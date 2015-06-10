@@ -9,9 +9,16 @@ categories: css
 <h2>Solution</h2>
 이미지를 겹치기 위해서 Style 프로퍼티의 Position을 이해해야 한다. <br>
 position의 default 값은 static이며 이는 해당 document에 그려지는 element 순서대로 위치하게 한다. <br>
-내가 사용할것은 relative로서 기본 위치에서 해당 element를 이동시켜준다. ([사용예](http://www.w3schools.com/cssref/tryit.asp?filename=trycss_position_relative)) <br>
+relative는 기본 위치에서 해당 element를 이동시켜준고 td 정렬 기준으로 div 전반부를 사용한다. <br>
+absolute는 가장 가까운 곳에 위치한 조상 엘리먼트에 상대적으로 위치가 조정된다. <br>
 
+내 코드의 구조가 td > div > img 로 되있었으므로 다음과 같이 작성하면 들어오는 해당 td에 들어가는 이미지에 한해서 겹쳐지게 된다. 
 
+```html
+
+```
+
+<h2></h2>
 
 <h2>Reference</h2>
 
