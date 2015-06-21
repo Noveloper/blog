@@ -42,9 +42,11 @@ increment();
 function increment() {
     var actionCnt = 0;
     
-    return function () {
-      return ++actionCnt;
+    function realIncrement() {
+      ++actionCnt;
     }
+    
+    return realIncrement;
 }
 
 var incrementor = increment();
@@ -55,7 +57,11 @@ incrementor();
 incrementor();
 ```
 
+보통의 언어라면 말도 안되는 코드이다. 하지만 Javascript 에서 함수 내부에 선언된 함수는 자신이 선언된 '환경' 에 대해서 연결을 갖는다. MDN에 따르면 클로저는 '함수'와 '그 함수가 만들어진 환경' 이 두가지로 이루어진 특별한 객체라고 소개한다. 그 함수가 만들어진 환경은 함수가 만들어질 때 사용할 수 있었던 변수들로 이루어지는데 위와 같은 경우에 incrementor가 realIncrement 함수와 actionCnt 변수를 가진 클로저 인스턴스이다.
 
+
+<h2>Conclusion</h2>
+사실, 아직 잘 모르겠다. 
 
 
 <h2>Reference</h2>
