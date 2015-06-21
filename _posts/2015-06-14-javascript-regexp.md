@@ -9,7 +9,7 @@ categories: javascript
 <h2>RegExp</h2>
 JavaScript 내장객체로 RegExp 객체가 있으며 JavaScript 에서 정규표현식을 사용하는 방법은 아래와 같이 두가지가 있다.
 
-```javacript
+```javascript
 var pattern1 = /qwer/i; // Object initializer
 var pattern2 = new RegExp("qwer", "i"); // User RegExp Constructor 
 ```
