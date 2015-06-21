@@ -18,9 +18,9 @@ var pattern2 = new RegExp("qwer"); // User RegExp Constructor
 
 | Flag  | Description |
 | ------------- | ------------- |
-| g  | global - 문자열 내의 모든 문자열을 검색  |
-| i  | ignore case - 대소문자 구분을 하지 않음  |
-| m  | multi line - 문자열이 개행되어도 검색  |
+| g | global - 문자열 내의 모든 문자열을 검색  |
+| i | ignore case - 대소문자 구분을 하지 않음  |
+| m | multi line - 문자열이 개행되어도 검색  |
 
 
 <h2>Reference</h2>
