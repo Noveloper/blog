@@ -57,11 +57,26 @@ incrementor();
 incrementor();
 ```
 
-보통의 언어라면 말도 안되는 코드이다. 하지만 Javascript 에서 함수 내부에 선언된 함수는 자신이 선언된 '환경' 에 대해서 연결을 갖는다. MDN에 따르면 클로저는 '함수'와 '그 함수가 만들어진 환경' 이 두가지로 이루어진 특별한 객체라고 소개한다. 그 함수가 만들어진 환경은 함수가 만들어질 때 사용할 수 있었던 변수들로 이루어지는데 위와 같은 경우에 incrementor가 realIncrement 함수와 actionCnt 변수를 가진 클로저 인스턴스이다.
+보통의 언어라면 말도 안되는 코드이다. 하지만 Javascript 에서 함수 내부에 선언된 함수는 자신이 선언된 '환경' 에 대해서 연결을 갖는다. MDN에 따르면 클로저는 '함수'와 '그 함수가 만들어진 환경' 이 두가지로 이루어진 특별한 객체라고 소개한다. 그 함수가 만들어진 환경은 함수가 만들어질 때 사용할 수 있었던 변수들로 이루어지는데 위와 같은 경우에 incrementor가 realIncrement 함수와 actionCnt 변수를 가진 클로저 인스턴스이다. incrementor 는 actionCnt 를 가지고 있기 때문에 incrementor() 가 호출될 때마다 actionCnt의 값이 1씩 증가하게 되는 코드이다. <br>
+<br>
+다음과 같이 조금 더 간결하게 코드를 바꿀 수 있다.
 
+```javascript
+var incrementor = (function () {
+    var actionCnt = 0;
+    return function () {
+      ++actionCnt;
+    }
+})();
+
+incrementor();
+incrementor();
+```
+
+<br>
 
 <h2>Conclusion</h2>
-사실, 아직 잘 모르겠다. 
+사실, 아직 잘 모르겠다. 오늘 이해한 것은 클로저(Closure)란 아주 특별한 오브젝트이며 사용 방면이 다양하다는 점이다. 내가 소개한 예제의 클로저는 input 이 없는 클로저 였지만 input으로 같은 환경에서 다른 클로저를 만들 수도 있다. 하지만 클로저란 결국 함수 내부의 함수를 선언하는 형태로 꼭 필요한 곳이 아닌곳에 무분별하게 사용하면 분명히 성능 이슈가 발생할 것 같다. <br>
 
 
 <h2>Reference</h2>
