@@ -34,7 +34,27 @@ increment();
 increment();
 ```
 
-이 방법은 사실 별 문제가 없어 보이고 가독성도 크게 나쁘지 않다. 일반적인 케이스에서는 말이다. 하지만 Javascript 코드가 길어지고 다른 Action에 대한 카운팅 변수들이 필요할 때 전역변수들이 무분별하게 많아져 코드는 더러워지고 가독성도 나빠지게 된다. 그리고 전역 변수의 생명 주기(Life Cycle)는 우리의 어플리케이션 (Window or Web Page) 가 살아있는 동안 영원히 살아있기 때문에 지역 변수에 비해 메모리 활용면에서 확실히 떨어진다. 
+이 방법은 사실 별 문제가 없어 보이고 가독성도 크게 나쁘지 않다. 일반적인 케이스에서는 말이다. 하지만 Javascript 코드가 길어지고 다른 Action에 대한 카운팅 변수들이 필요할 때 전역변수들이 무분별하게 많아져 코드는 더러워지고 가독성도 나빠지게 된다. 그리고 전역 변수의 생명 주기(Life Cycle)는 우리의 어플리케이션 (Window or Web Page) 이 살아있는 동안 영원히 살아있기 때문에 지역 변수에 비해 메모리 활용면에서 확실히 떨어진다. <br>
+<br>
+클로저는 이에 대한 단점을 해결해준다. 지역변수를 활용해서 말이다. <br> 
+
+```javascript
+function increment() {
+    var actionCnt = 0;
+    
+    return function () {
+      return ++actionCnt;
+    }
+}
+
+var incrementor = increment();
+
+incrementor();
+incrementor();
+...
+incrementor();
+```
+
 
 
 
