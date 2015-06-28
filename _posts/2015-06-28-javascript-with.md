@@ -18,6 +18,20 @@ int main() {
 }
 ```
 
+<br>
+그리고 Java를 공부해본 사람이라면 다음과 같은 코드도 익숙할 것이다.
+
+```java
+import static org.junit.Assert
+
+public class DommyTest {
+  @Test
+  public void test() {
+    assertThat(...);
+  }
+}
+```
+
 <h2>Reference</h2>
 
 - [JavasSript With - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)
